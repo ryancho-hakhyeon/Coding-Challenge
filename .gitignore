@@ -1,0 +1,4 @@
+.pytest_cache/
+.idea/
+temp/
+__pycache__/
