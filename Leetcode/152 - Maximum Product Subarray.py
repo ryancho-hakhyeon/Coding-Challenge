@@ -10,8 +10,36 @@ from typing import List
 
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
-        pass
+        res = max(nums)
+        curMin, curMax = 1, 1
 
+        for n in nums:
+            if n == 0:
+                curMin, curMax = 1, 1
+                continue
+            temp = curMax * n
+            curMax = max(temp, n * curMin, n)
+            curMin = min(temp, n * curMin, n)
+            res = max(res, curMax)
+
+        return res
+    # This is other solution in the leetcode discuss.
+    # def maxProduct(nums):
+    #     dp = [[0 for i in range(2)] for i in range(len(nums))]
+    #     print(dp)
+    #
+    #     dp[-1][0] = nums[-1]
+    #     dp[-1][1] = nums[-1]
+    #
+    #     print(dp)
+    #     for i in range(len(nums) - 2, -1, -1):
+    #         dp[i][0] = max(nums[i], nums[i] * dp[i + 1][0], nums[i] * dp[i + 1][1])
+    #         dp[i][1] = min(nums[i], nums[i] * dp[i + 1][0], nums[i] * dp[i + 1][1])
+    #     print(dp)
+    #     maxi = float('-inf')
+    #     for i in range(len(dp)):
+    #         maxi = max(dp[i][0], dp[i][1], maxi)
+    #     return maxi
 
 ob = Solution()
 
