@@ -15,9 +15,20 @@ class Solution:
         n = len(nums)
         res = []
 
-        for i in range(n):
-            pass
+        if n == 0:
+            return res
 
+        first_value = nums[0]
+
+        for i in range(n):
+            if i == n - 1 or nums[i] + 1 != nums[i + 1]:
+                if nums[i] != first_value:
+                    res.append(f"{first_value}->{nums[i]}")
+                else:
+                    res.append(f"{first_value}")
+
+                if i != n - 1:
+                    first_value = nums[i + 1]
         return res
 
 
