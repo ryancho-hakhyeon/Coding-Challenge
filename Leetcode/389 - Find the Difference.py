@@ -14,6 +14,14 @@ class Solution:
             if key not in s_dict or s_dict[key] < value:
                 return key
 
+        # Other Solution Using XOR concept
+        # c = 0
+        # for cs in s:
+        #     c ^= ord(cs)
+        # for ct in t:
+        #     c ^= ord(ct)
+        # return chr(c)
+
 
 obj = Solution()
 
