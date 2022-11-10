@@ -17,6 +17,18 @@ from typing import List
 
 class Solution:
     def findPoisonedDuration(self, timeSeries: List[int], duration: int) -> int:
+        # It is too slow.
+        # if len(timeSeries) == 0:
+        #     return 0
+        #
+        # total = []
+        # for time in timeSeries:
+        #     for n in range(time, time + duration):
+        #         if n not in total:
+        #             total.append(n)
+        #
+        # return len(total)
+
         if len(timeSeries) == 0:
             return 0
 
